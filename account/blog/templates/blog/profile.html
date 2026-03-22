@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <title>Profile</title>
+</head>
+
+<body>
+    <!-- 🔥 TITLE -->
+    <h2 class="main-title">Author's Profile</h2>
+
+    <div class="container">
+
+        {% for pro in profiles %}
+
+            <!-- 🔥 BLOG CARD STYLE -->
+            <div class="blog-card">
+                <h2>
+    <a href="{% url 'author_posts' pro.id %}" class="author-link">
+        {{ pro.name }}
+    </a>
+</h2>
+                <p class="content">
+                    <b>Education:</b> {{ pro.education }}
+                </p>
+
+                <small class="author">
+                    Age: {{ pro.age }}
+                </small>
+
+            </div>
+
+        {% empty %}
+            <p style="text-align:center;">No profiles found 😅</p>
+        {% endfor %}
+
+    </div>
+
+    <!-- 🔥 BUTTON -->
+    <div style="text-align:center; margin-top:20px;">
+        <a href="{% url 'add_profile' %}" class="navbar">
+            <span style="padding:10px 20px; background:linear-gradient(45deg,#00c6ff,#ff0000); border-radius:8px;">
+                ➕ Create Profile
+            </span>
+        </a>
+    </div>
+
+</body>
+</html>

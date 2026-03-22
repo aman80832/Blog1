@@ -1,0 +1,15 @@
+<html>
+    <head>
+        {% load static %}
+         <link rel="stylesheet" href="{% static 'blog/css/style1.css' %}">
+    </head>
+    <body>
+        <h2>Add Comment</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Comment</button>
+</form>
+    </body>
+    </html>

@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'blog/css/style1.css' %}">
+    <title>Create Profile</title>
+</head>
+
+<body>
+
+    <h2 class="form-title">Create New Profile</h2>
+    <form method="POST">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <button type="submit">Add new profile</button>
+    <br>
+    <a href="{% url 'home' %}">Home</a>
+</form>
+
+</body>
+</html>

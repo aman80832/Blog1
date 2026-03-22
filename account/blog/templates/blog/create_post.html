@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'blog/css/style1.css' %}">
+    <title>Create Blog</title>
+</head>
+
+<body>
+
+    <h2 class="form-title">Create New Blog</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+            <span class="error">{{ form.title.errors }}</span>
+        </div>
+
+        <div class="form-group">
+            {{ form.content.label_tag }}
+            {{ form.content }}
+            <span class="error">{{ form.content.errors }}</span>
+        </div>
+
+        <div class="form-group">
+            {{ form.author.label_tag }}
+            {{ form.author }}
+            <span class="error">{{ form.author.errors }}</span>
+        </div>
+
+        <div class="form-group">
+            {{ form.created_at.label_tag }}
+            {{ form.created_at }}
+            <span class="error">{{ form.created_at.errors }}</span>
+        </div>
+
+        <button type="submit">🚀 Publish Blog</button>
+
+        <a href="{% url 'home' %}" class="home-link">← Back to Home</a>
+    </form>
+
+</body>
+</html>
